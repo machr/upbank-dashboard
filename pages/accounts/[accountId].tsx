@@ -27,18 +27,15 @@
 //   }
 // }
 
-// const AccountPage = ({ account, transactionsByAccount }): JSX.Element => {
-//   // console.log('transactionsByAccount', transactionsByAccount);
+const AccountPage = (): JSX.Element => {
+  // console.log('transactionsByAccount', transactionsByAccount);
 
-//   return (
-//     <>
-//       <h1>Account name: {account.data.attributes.displayName}</h1>
-//       <h2>Current Balance: ${account.data.attributes.balance.value}</h2>
-//       <main>
-//         <TransactionsList transactions={transactionsByAccount} />
-//       </main>
-//     </>
-//   )
-// }
+  return (
+    <>
+      <h1>Account name</h1>
+      <h2>Current Balance</h2>
+    </>
+  )
+}
 
-// export default AccountPage;
+export default AccountPage;

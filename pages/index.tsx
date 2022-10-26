@@ -40,7 +40,7 @@ const Home: NextPage = ({ data }: any) => {
 
         </ul>
         {
-          accounts.map((account): { id: string, attributes: { displayName: string } } => {
+          accounts.map((account: { id: string, attributes: { displayName: string } }) => {
             const { attributes, id } = account;
             return (<li key={id}>{attributes.displayName}</li>
             )
