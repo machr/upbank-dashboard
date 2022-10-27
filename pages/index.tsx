@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import AccountPage from './accounts/[accountId]';
+import Link from 'next/link'
+// import AccountPage from './accounts/[accountId]';
 
 export async function getServerSideProps() {
   const res = await fetch(`https://api.up.com.au/api/v1/accounts/`, {
@@ -17,7 +18,7 @@ export async function getServerSideProps() {
   }
 }
 
-const Home: NextPage = ({ data }: any) => {
+const Home: NextPage = function ({ data }: any) {
   const { data: accounts } = data;
   // console.log({ accounts });
 
@@ -36,13 +37,15 @@ const Home: NextPage = ({ data }: any) => {
           <li><s>Get API key from up</s></li>
           <li><s>Make API call to retrive list of accounts</s></li>
           <li><s>Display list of Accounts</s></li>
-          <li>Make list of accounts into links</li>
-
+          <li><s>Make list of accounts into links</s></li>
+          <li>Add basic styling to index page</li>
+          <li>Show last 20 transactions</li>
+          <li>show transactions per accounts</li>
         </ul>
         {
           accounts.map((account: { id: string, attributes: { displayName: string } }) => {
             const { attributes, id } = account;
-            return (<li key={id}>{attributes.displayName}</li>
+            return (<Link key={id} href={`/accounts/${id}`}>{attributes.displayName}</Link>
             )
           })
         }
